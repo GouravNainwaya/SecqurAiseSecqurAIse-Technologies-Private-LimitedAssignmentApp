@@ -287,6 +287,37 @@ const DataDisplay = () => {
     // Fetch data initially
     fetchData();
 
+    const Temp = async () => {
+      // Internet Connectivity
+      const netInfoState = await NetInfo.fetch();
+      setInternetStatus(
+        netInfoState.isConnected ? 'Connected' : 'Disconnected',
+      );
+
+      // Battery Status
+      const isCharging = await DeviceInfo.isBatteryCharging();
+      setBatteryStatus(isCharging ? 'Charging' : 'Not Charging');
+      const batteryLevel = await DeviceInfo.getBatteryLevel();
+      setBatteryPercentage(`${(batteryLevel * 100).toFixed(2)}%`);
+
+      // Check battery level and show an alert if it's less than 20%
+      if (!isCharging && batteryLevel < 0.2) {
+        Alert.alert(
+          'Low Battery',
+          'Your battery is running low (less than 20%)!',
+          [
+            {
+              text: 'OK',
+              onPress: () => console.log('OK Pressed'),
+            },
+          ],
+          {cancelable: false},
+        );
+      }
+    };
+
+    const RealTimeForChargingStatusAndInternetStatus = setInterval(Temp, 1000);
+
     // Cleanup the subscription when the component unmounts
 
     // Set up an interval to fetch data and upload every 15 minutes
