@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "649158593147",
+    "project_id": "secquraise-technologies-app",
+    "storage_bucket": "secquraise-technologies-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:649158593147:android:95e48a74c8b9749998b0de",
+        "android_client_info": {
+          "package_name": "com.secquraiseassignmentapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAleTFvr18630_bu2FEOmvaoxLAnPBG9g8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
